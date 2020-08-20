@@ -1,0 +1,127 @@
+:root {
+  --bg-color: #264582;
+  --nav-color: #C8D2E7;
+  --font-color: white;
+  --font-style: 'Dosis', sans-serif;
+
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: var(--font-style);
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+hr {
+  background-color: rgba(255, 255, 255, .5);
+  width: 90%;
+}
+
+.content {
+  position: relative;
+  margin: 150px 0 100px 0 ;
+  text-align: center;
+}
+
+
+.navbar {
+  background-color: var(--nav-color);
+  font-size: 2em;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  transition: color .3s ease;
+}
+
+.navbar a:hover {
+  color: gray;
+}
+
+
+/* FOOTER */
+.footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: 60px;
+  font-size: 1.2em;
+}
+
+.footer img {
+  margin-left: 10px;
+  filter: invert(50%) sepia(0%) saturate(100%) hue-rotate(130deg) brightness(95%) contrast(80%);
+  transition: filter ease .3s;
+}
+
+.footer img:hover {
+  filter: invert(100%) sepia(0%) saturate(100%) hue-rotate(130deg) brightness(95%) contrast(80%);
+  transition: filter ease .3s;
+}
+
+
+/* ABOUT PAGE */
+.about {
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.about .profile-image {
+  margin: 30px 0 30px 0;
+  border-radius: 50%;
+  border: 2px solid white;
+  width: 200px;
+}
+
+.about .info {
+  text-align: left;
+  font-size: 1.3em;
+}
+
+.about .info a {
+  color: white;
+}
+
+.about .loggo {
+  margin: 30px auto;
+}
+
+.about .info .progressbar {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.about .info .progressbar .fill {
+  position: absolute;
+  border-radius: 10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+}
+
+.about .info .progressbar p {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  font-weight: 500;
+}
+
+

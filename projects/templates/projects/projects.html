@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="row projects">
+        <div class="col-lg-2 sidebar">
+            <h2>Projects</h2>
+            <ul>
+                {% for project in projects %}
+                    <li><a href="{% url 'projects' %}/{{ project }}">{{ project }}</a></li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        {% block project-content %}
+            <div class="col-lg-9">
+                HEY THIS IS SOME CONTENT
+            </div>
+        {% endblock %}
+
+
+
+    </div>
+
+{% endblock %}
+

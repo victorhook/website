@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/skills.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="row justify-content-center">
+
+    {% for category, skills in skill_categories.items %}
+            <div class="skill-category">
+                <h1>{{ category.name }}</h2>
+                <div class="d-flex justify-content-center">
+                    <table class="skill-table">
+                        <!-- HEADER -->
+                        <thead>
+                            <tr style="text-align: center;">
+                                <th>{{ category.feature_name }}</th>
+                                <th>Skill</th>
+                            </tr>
+                        </thead>
+
+                        <!-- BODY -->
+                        <tbody>
+                            {% for skill in skills %}
+                            <tr>
+                                <td>{{ skill.name }}</td>
+                                <td>
+                                    <div class="progressbar">
+                                        <div id="fill-bar"></div>
+                                        <p id="skill-text">{{ skill.value }}/10</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    {% endfor %}
+
+    </div>
+
+
+{% endblock %}

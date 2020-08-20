@@ -1,0 +1,74 @@
+{% extends 'projects.html' %}
+
+{% load static %}
+
+{% block project-content %}
+
+    <div class="col-lg-9 project-content">
+
+        <h1>{{ project.title }}</h1>
+        <hr>
+
+        <div class="description">
+            <ul>
+                <li class="estimate">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h3>Estimated time:</h3>
+                        </div>
+                        <div class="col-lg-10">
+                            <p>{{ project.estimated_time }} hours</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h3>Estimated price:</h3>
+                        </div>
+                        <div class="col-lg-10">
+                            <p>{{ project.estimated_price }}  €</p>
+                        </div>
+                    </div>
+                <li>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h3>Objective:</h3>
+                        </div>
+                        <div class="col-lg-10">
+                            <p>{{ project.objective }}</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h3>What I learned:</h3>
+                        </div>
+                        <div class="col-lg-10">
+                            {{ project.learned }}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <img class="img-fluid" src="/static{{ project.image.url }}">
+
+        <hr>
+
+        <div class="body">
+            <h2 class="title">Description</h2>
+
+            <p>
+                {{ project.body }}
+            </p>
+        </div>
+
+        <div class="date">
+            <p>Created {{ project.date|date:"M d, Y" }} </p>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+{% load static %}
+
+  <div class="container">
+
+    <div class="row">
+        <div class="col-sm-4 about about-info">
+            <h2>Victor Krook</h2>
+
+            <img class="img-fluid profile-image" src="{% static 'images/profilepic.jpg' %}" alt="Photo of me">
+            <div class="info">
+                <div class="progressbar">
+                    <div class="fill"></div>
+                    <p id="progressbar-text" data-percent_engineer={{percent_engineer}}>{{ percent_engineer }} % Engineer</p>
+                </div>
+                <ul>
+                    <li><h3><span style="font-weight:bold;">Age</span>: 24</h3></li>
+                    <li><h3><span style="font-weight:bold;">Origin</span>: Malmo, Sweden</h3></li>
+                    <li><h3><span style="font-weight:bold;">University</span>: Lunds University</h3></li>
+                    <li><h3><span style="font-weight:bold;">Days until graduation</span>: {{ days_until_graduation }}</h3></li>
+                    <li><a href="https://www.lu.se/"><img class="img-fluid loggo" src="{% static 'images/lu_loggo.jpg' %}" alt="LTH loggo"></a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-7 about">
+            <div class="info">
+            <h3>Who am I?</h3>
+            <p>
+                Hi! <br>
+                I'm Victor, 24 years old, living in Helsingborg in the southern
+                part of Sweden. I'm currently studying towards a bachelors in
+                Computer Science and Engineering at Lunds University and I
+                really love it!
+            <p>
+            <p>
+                I've previously worked as a chef & salesperson, laboratory assistant,
+                machine operator as well as a personal trainer. I've also spent
+                my last to summers (2019 and 2020) as a summer intern at
+                <a href="https://www.bitcraze.io/">bitcraze</a>. There, I
+                learned to use git & github, got introduced to an agile work-flow,
+                read legacy python-code and improved their GUI client.
+                I've made two blogposts that you can read if you're curious
+                of the details of my time there:
+                <a href="https://www.bitcraze.io/2019/08/summer-internship/">
+                summer 2019</a>,
+                <a href="https://www.bitcraze.io/2020/08/python-client-improvements/">
+                summer 2020</a>.
+            </p>
+            <p> Before I got adopted
+                to the tech-side, I spent all my time on working out and loved
+                pushing my body to its limit and required discipline and very
+                high motivation and determination to reach my goals.
+                From this I learned skills that I believe are invaluable in life
+                and it formed me to be the goal-oriented and dedicated person
+                I am today.
+            </p>
+            <p>
+                I have a passion for electronics, programming and photography,
+                and when I'm free I love to travel and explore new types of food.
+                I believe that exploring the world is a great way to get inspired,
+                meet new people, and to fully enjoy what life is really about.
+                I love acuiring new experiences.
+            </p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'js/about.js' %}" type="text/javascript"></script>
+{% endblock %}

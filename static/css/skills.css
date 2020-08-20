@@ -1,0 +1,52 @@
+.skill-category {
+    padding: 50px;
+    border: 1px solid rgba(255, 255, 255, .8);
+    border-radius: 20px;
+    margin: 50px;
+  }
+
+  .skill-table {
+    font-size: 2em;
+  }
+
+  .skill-table th {
+    padding: 20px;
+    border-bottom: 1px solid black;
+  }
+
+  .skill-table td {
+    padding: 5px 70px;
+  }
+
+  .skill-table tbody::before {
+    content:"@";
+    display:block;
+    line-height:10px;
+    text-indent:-99999px;
+  }
+
+  .progressbar {
+    border-radius: 7px;
+    height: 50px;
+    width: 200px;
+
+    display: block;
+    background-color: grey;
+    position: relative;
+    text-align: center;
+  }
+
+  #fill-bar {
+    border-radius: 7px;
+
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    background-color: #449542;
+    text-align: center;
+  }
+
+  #skill-text {
+    position: relative;
+    z-index: 2;
+  }

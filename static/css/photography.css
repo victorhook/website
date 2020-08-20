@@ -1,0 +1,106 @@
+/* -- PHOTO COLLECTIONS -- */
+
+.photos {
+    margin: 80px 50px;
+    padding: 0;
+}
+
+.image:hover .overlay {
+    opacity: .5;
+}
+
+.photos .image {
+    padding: 0;
+}
+
+.photos img {
+    border-radius: 10px;
+}
+
+.image .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #006080;
+}
+
+.modal-content {
+    background-color: rgba(50, 50, 50, 1);
+}
+
+.close-btn {
+    color: white;
+}
+
+.modal-content {
+    background-color: rgba(50, 50, 50, 1);
+}
+
+
+/* -- MODAL - METADATA -- */
+
+.meta-data {
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 20px;
+    text-align: left;
+    display: inline-block;
+    padding: 20px;
+}
+
+.meta-data h4 {
+    text-align: center;
+}
+
+.meta-data td {
+    padding-right: 25px;
+}
+
+
+/* -- MODAL - IMAGE -- */
+
+.modal-dialog, .modal-content, .modal-body {
+    min-width: 50%;
+    width: 100%;
+    position: relative;
+}
+
+#modal-image {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+
+.modal-content a {
+    text-decoration: none;
+    color: black;
+    transition: color .3 ease;
+    z-index: 10;
+}
+
+.modal-content a:hover {
+    color: white;
+}
+
+.modal-content svg {
+    width: 40px;
+    height: 40px;
+}
+
+.modal-arrow-left {
+    top: 50%;
+    left: 0;
+    position: absolute;
+}
+
+.modal-arrow-right {
+    top: 50%;
+    right: 0;
+    position: absolute;
+}
+

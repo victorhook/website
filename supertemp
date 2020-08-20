@@ -1,0 +1,65 @@
+<div class="description">
+                <ul>
+                    <li class="estimate">
+                        <h3>Estimated time: <span>10 hours</span></h3>
+                    </li>
+                    <li class="estimate">
+                        <h3>Estimated price: <span>40€</span></h3>
+                    </li>
+                    <li>
+                        <h3>Objective:</h3>
+                        <p>
+                            Gather new insights in a topics that I've never seen before.
+                            This was a really cool experience!
+                        </p>
+                    </li>
+                    <li>
+                        <h3>What I learned:</h3>
+                        <p>
+                            Gather new insights in a topics that I've never seen before.
+                            This was a really cool experience!
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <img class="img-fluid" src="{% static 'images/monitor.jpg' %}">
+
+            <hr>
+
+            <div class="body">
+                <h2 class="title">Description</h2>
+
+                <p>
+                    heyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                    heyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyeheyheyehey
+                </p>
+            </div>
+
+            <div class="date">
+                <p>Created 2020-06-30 12:33</p>
+            </div>
