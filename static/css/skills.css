@@ -31,16 +31,14 @@
     width: 200px;
 
     display: block;
-    background-color: grey;
+    border: 2px solid white;
     position: relative;
     text-align: center;
   }
 
   #fill-bar {
     border-radius: 7px;
-
     position: absolute;
-    width: 70%;
     height: 100%;
     background-color: #449542;
     text-align: center;

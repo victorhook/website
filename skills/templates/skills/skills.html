@@ -30,7 +30,7 @@
                                 <td>{{ skill.name }}</td>
                                 <td>
                                     <div class="progressbar">
-                                        <div id="fill-bar"></div>
+                                        <div id="fill-bar" class="skillbar" data-value={{skill.value}}></div>
                                         <p id="skill-text">{{ skill.value }}/10</p>
                                     </div>
                                 </td>
@@ -45,4 +45,9 @@
     </div>
 
 
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'js/skills.js' %}" type="text/javascript"></script>
 {% endblock %}
