@@ -30,8 +30,19 @@
     color: white;
 }
 
+
 .project-content .description, .body {
     text-align: left;
+}
+
+.project-content .body a {
+    color: white;
+    text-decoration: underline;
+    transition: .3s ease;
+}
+
+.project-content .body a:hover {
+    color: rgba(255, 255, 255, 0.767);
 }
 
 .project-content h3 {

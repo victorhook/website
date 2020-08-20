@@ -1,5 +1,7 @@
 {% extends 'index.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="container contact">
@@ -15,33 +17,36 @@
 
     <hr>
 
-    <form>
-        <div class="row">
-          <div class="form-group col-sm-6 labels">
-            <label>Name:</label>
-          </div>
-          <div class="form-group col-sm-6 input">
-            <input type="text">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-sm-6 labels">
-            <l<label>Email (If you want me to get back):</label>
-          </div>
-          <div class="form-group col-sm-6 input">
-            <input type="email">
-          </div>
-        </div>
-        <div class="form-group message">
-            <label>Message:</label><br>
-            <textarea class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Send">
-        </div>
-    </form>
-</div>
+    <form action="{% url 'contact' %}" method="POST">
 
+        {% csrf_token %}
+
+          <div class="row">
+            <div class="form-group col-sm-6 labels">
+              <label>Name:</label>
+            </div>
+            <div class="form-group col-sm-6 input">
+              <div class="input">{{ form.name }}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6 labels">
+              <label>Email (If you want me to get back):</label>
+            </div>
+            <div class="form-group col-sm-6 input">
+              {{ form.mail }}
+            </div>
+          </div>
+          <div class="form-group message">
+              <label>Message:</label><br>
+              {{ form.message }}
+          </div>
+          <div class="form-group">
+              <input class="button" type="submit" value="Send">
+          </div>
+      </form>
+
+</div>
 
 {% endblock %}
 

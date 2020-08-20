@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
 
+from datetime import date
 
 from .models import Photo
 
@@ -31,27 +32,11 @@ def photography(request):
         except AttributeError:
             exif = None
 
-    return render(request, 'photography.html', {'photos': photos})
+    return render(request, 'photography.html', {'photos': photos,
+                                                'current_year': date.today().year})
 
 
 def photo(request):
 
-    return render(request, 'photography.html', {'photos': photos})
-
-
-# import os
-# from PIL import Image, ExifTags
-# path = '/home/victor/coding/projects/website/website/static/images/_photography'
-
-# img = Image.open(os.path.join(path, 'IMG_0298.JPG'))
-
-# exif = { ExifTags.TAGS[k]: v for k, v in img._getexif().items() if k in ExifTags.TAGS }
-# print('\n'.join(['%s:%s' % (k, v) for k, v in exif.items()]))
-
-# 'DateTimeOriginal'
-# 'ApertureValue'
-# 'FocalLength:28.0'
-# 'Model'
-# 'ExposureTime'
-# 'ISOSpeedRatings'
-# 'LensModel'
+    return render(request, 'photography.html', {'photos': photos,
+                                                'current_year': date.today().year})

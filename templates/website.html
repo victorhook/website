@@ -1,0 +1,140 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/website.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+<div class="title">
+    <h1>Website anatomy</h1>
+
+    <hr>
+</div>
+
+
+<div class="request-guide">
+
+    <div class="row">
+        <div class="offset-lg-1 col-lg-1">
+            <div class="number">1</div>
+            <div class="website-body">
+                <img src="{% static 'images/url.gif' %}">
+                <p>Client enters the url</p>
+            </div>
+        </div>
+        <div class="offset-8 col-lg-1">
+            <div class="number">9</div>
+            <div class="website-body">
+                <p>And finally back to the client</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-lg-1 col-lg-1">
+            <img class="arrow" src="{% static 'images/arrow_right.png' %}">
+        </div>
+        <div class="col-lg-1">
+            <div class="number">2</div>
+            <div class="website-body">
+                <img class="img-fluid" src="{% static 'images/logos/logo_apache.png' %}">
+                <p>Apache parses the http request</p>
+            </div>
+        </div>
+        <div class="offset-lg-2 col-lg-2">
+                    <div class="website-body">
+            <img class="img-fluid" src="{% static 'images/rpi4.png' %}">
+            <p>All with the help of a Raspberry PI 4</p>
+        </div>
+            </div>
+        <div class="offset-2 col-lg-1">
+            <div class="number">8</div>
+            <div class="website-body">
+                <img class="img-fluid" src="{% static 'images/logos/logo_apache.png' %}">
+                <p>And then back to apache</p>
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <img class="arrow" src="{% static 'images/arrow_right2.png' %}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-lg-2 col-lg-1">
+            <img class="arrow" src="{% static 'images/arrow_right.png' %}">
+        </div>
+        <div class="col-lg-1">
+            <div class="number">3</div>
+            <div class="website-body">
+                <p>mod_wsgi is invoked by apache and loads the Django application</p>
+            </div>
+        </div>
+
+        <div class="offset-4 col-lg-1">
+            <div class="number">7</div>
+            <div class="website-body">
+                <p>The data is then passed back to mod_wsgi</p>
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <img class="arrow" src="{% static 'images/arrow_right2.png' %}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-lg-3 col-lg-1">
+            <img class="arrow" src="{% static 'images/arrow_right.png' %}">
+        </div>
+        <div class="col-lg-1">
+            <div class="number">4</div>
+            <div class="website-body">
+                <p>Django does its magic and goes through url pattern-matching and the
+                    http-request ends up in the views
+                </p>
+            </div>
+        </div>
+
+        <div class="offset-lg-2 col-lg-1">
+            <div class="number">6</div>
+            <div class="website-body">
+                <p>
+                   Once the data has been processed/manipulated, the html is built from templates,
+                   using Django's template-engine.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <img class="arrow" src="{% static 'images/arrow_right2.png' %}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-lg-4 col-lg-1">
+            <img class="arrow" src="{% static 'images/arrow_right.png' %}">
+        </div>
+        <div class="col-lg-2">
+            <div class="number">5</div>
+            <div class="website-body">
+                <img class="arrow" src="{% static 'images/logos/logo_python.png' %}">
+
+                <p>
+                    In the views, python code is executed.
+                    Here's where all the database queries and other data-manipulation happens.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <img class="arrow" src="{% static 'images/arrow_right2.png' %}">
+        </div>
+    </div>
+
+
+
+</div>
+
+
+{% endblock %}
+

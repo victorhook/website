@@ -1,0 +1,22 @@
+.number {
+    border: 3px solid white;
+    border-radius: 50%;
+    padding: 10px 30px;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.arrow {
+    width: 100px;
+}
+
+.flow-container {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: 1.3em;
+}
