@@ -11,6 +11,7 @@
     <div class="row projects">
         <div class="col-lg-2 sidebar">
             <h2>Projects</h2>
+            <hr>
             <ul>
                 {% for project in projects %}
                     <li><a href="{% url 'projects' %}/{{ project }}">{{ project }}</a></li>
