@@ -45,15 +45,15 @@
                         <div class="col-lg-2">
                             <h3>What I learned:</h3>
                         </div>
-                        <div class="col-lg-10">
-                            {{ project.learned }}
+                        <div class="col-lg-10 learned-list">
+                            {{ project.learned|safe }}
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
 
-        <img class="img-fluid" src="/static{{ project.image.url }}">
+        <img class="img-fluid" src={{ project.image_url }}>
 
         <hr>
 
@@ -61,10 +61,7 @@
             <h2 class="title">Description</h2>
 
             <p>
-                {{ project.body }}
-
-                <a href="#">hdkjashd</a>
-
+                {{ project.body|safe }}
             </p>
         </div>
 

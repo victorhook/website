@@ -3,13 +3,13 @@
   --nav-color: #C8D2E7;
   --font-color: white;
   --font-style: 'Dosis', sans-serif;
-
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--font-color);
   font-family: var(--font-style);
+  font-size: .8em;
 }
 
 html {
@@ -29,7 +29,7 @@ hr {
 
 .content {
   position: relative;
-  margin: 150px 0 100px 0 ;
+  margin: 100px 0 100px 0 ;
   text-align: center;
 }
 
@@ -42,7 +42,8 @@ hr {
 .navbar {
   /* background-color: var(--nav-color); */
   background: rgb(2,0,36);
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);  font-size: 2em;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  font-size: 1.5em;
   box-shadow: 0 20px 20px -20px rgba(0, 0, 0, .6);
 }
 
@@ -105,11 +106,13 @@ hr {
 .about .loggo {
   transition: opacity .3s ease;
   border-radius: 5px;
+  width: 200px;
 }
 
 .about .img-tag:hover .loggo{
   opacity: .6;
 }
+
 
 .about .info {
   text-align: left;

@@ -12,12 +12,14 @@ def photography(request):
 
     photos = Photo.objects.all()
 
+    IMAGES = '/static/images'
+
     for photo in photos:
         photo.contains_meta_data = False
-        path = str(settings.BASE_DIR) + photo.image.url
+        photo.url = IMAGES + photo.image.url
 
         try:
-            img = Image.open(path)
+            img = Image.open(photo.image.path)
             exif = { ExifTags.TAGS[k]: v for k, v in img._getexif().items() if k in ExifTags.TAGS }
             setattr(photo, 'date', exif.get('DateTimeOriginal', ''))
             setattr(photo, 'aperture', exif.get('ApertureValue', ''))

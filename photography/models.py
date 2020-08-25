@@ -2,7 +2,7 @@ from django.db import models
 
 class Photo(models.Model):
 
-    image = models.ImageField(upload_to='static/images/photography/')
+    image = models.ImageField('photography/')
     title = models.CharField(max_length=100, null=True)
 
     def __str__(self):

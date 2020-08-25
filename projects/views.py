@@ -19,8 +19,11 @@ def all_projects(request):
 
 def show_project(request, project):
 
+    IMAGES = '/static/images'
+
     projects = Project.objects.all()
     project = Project.objects.get(title=project)
+    project.image_url = IMAGES + project.image.url
 
     return render(request, 'project.html', {'projects': projects,
                                             'project': project,

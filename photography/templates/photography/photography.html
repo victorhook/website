@@ -12,20 +12,19 @@
 
     <hr>
 
-
     <div class="row photos justify-content-center">
 
         {% for photo in photos %}
             <div class="image col-xl-2 col-lg-3 col-md-4 col-sm-12 m-3">
-                    <img class="img-fluid img-responsive" id="{{ photo }}" src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                    <img class="img-fluid img-responsive" id="{{ photo }}" src={{ photo.url }} alt="{{ photo.title }}">
 
                     {% if photo.contains_meta_data %}
-                        <a href="javascript:void(0);" class="image-tag" name="{{ photo }}" id="{{ photo.image.url }}" data-toggle="modal" data-target="#imageModal"
+                        <a href="javascript:void(0);" class="image-tag" name="{{ photo }}" id={{ photo.url }} data-toggle="modal" data-target="#imageModal"
                             data-meta_data="True", data-date={{photo.date}}, data-aperture={{photo.aperture}}, data-focal={{photo.focal}},
                             data-model={{photo.model}}, data-exposure={{photo.exposure}},  data-iso={{photo.iso}}, data-lens={{photo.lens}}>
 
                     {% else %}
-                        <a href="javascript:void(0);" class="image-tag" name="{{ photo }}" id="{{ photo.image.url }}" data-toggle="modal" data-target="#imageModal">
+                        <a href="javascript:void(0);" class="image-tag" name="{{ photo }}" id={{ photo.url }} data-toggle="modal" data-target="#imageModal">
 
                     {% endif %}
                     <div class="overlay"></div>
@@ -101,8 +100,6 @@
             </div>
         </div>
     </div>
-
-
 
 {% endblock %}
 {% block script %}
