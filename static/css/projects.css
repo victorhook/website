@@ -80,3 +80,20 @@
     font-size: .8em;
     margin: 50px auto;
 }
+
+#download-btn {
+    position: relative;
+    margin-top: 10px;
+}
+
+#download-btn a {
+    color: white;
+    transition: .3s ease;
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+}
+
+#download-btn a:hover {
+    color: rgba(255, 255, 255, 0.767);
+}
