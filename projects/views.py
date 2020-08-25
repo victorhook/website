@@ -1,9 +1,8 @@
 from datetime import date
 
 from django.shortcuts import render
-from django.template.loader import render_to_string
+from django.http import FileResponse
 from django.conf import settings
-from django.http import HttpResponse, Http404
 
 from .models import Project
 from .pdfcreator import PdfCreator
@@ -30,16 +29,17 @@ def show_project(request, project):
                                             'current_year': date.today().year})
 
 def download_project(request, project):
-    import os
-    path = 'DEBUG'
-
-    import io
-    from django.http import FileResponse
-
-    output_path = settings.MEDIA_ROOT + 'pdf/%s.pdf' % project
+    output_path = settings.STATIC_ROOT + f'/pdf/{project}.pdf'
+    # re.sub didn't work here for some reason, so have to use replace() instead
     pure_html = str(show_project(request, project).content).replace('\\n', '')
+    pure_html = pure_html.replace('\\r', '').replace("\\'", "'")
 
-    pdf = PdfCreator.create_pdf(pure_html, output_path)
+    pdf = PdfCreator.create_pdf(pure_html,
+                                request.build_absolute_uri(),
+                                '/css/projects.css',
+                                output_path)
+    try:
+        return FileResponse(open(output_path, 'rb'))
+    except FileNotFoundException:
+        return show_project(request, project)
 
-    return FileResponse(open(output_path, 'rb'))
-    return show_project(request, project)

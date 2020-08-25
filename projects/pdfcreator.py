@@ -1,6 +1,7 @@
-from weasyprint import HTML
+from weasyprint import HTML, CSS
 
-from urllib.request import urlopen
+from django.conf import settings
+
 import os
 import re
 
@@ -14,11 +15,18 @@ class PdfCreator:
                        flags=re.DOTALL)
 
     @staticmethod
-    def create_pdf(html, save_path):
+    def create_pdf(html, base_url, stylesheet, save_path):
+        # Find the html content we're interested in
         html = PdfCreator.REGEX.search(html).group(0)
+
+        # Create dir if it doesn't exist
         dir_path = os.path.dirname(save_path)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
-        HTML(string=html).write_pdf(save_path)
-        with open(save_path, 'rb') as f:
-            return f.read()
+
+        # Grab stylesheet from filesystem
+        css = CSS(settings.STATIC_ROOT + stylesheet)
+        html = HTML(string=html, base_url=base_url)
+
+        html.write_pdf(save_path, stylesheets=[css, settings.BOOTSTRAP_CSS])
+
