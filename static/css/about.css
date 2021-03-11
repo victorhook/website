@@ -1,0 +1,110 @@
+
+.about-container {
+    padding: 7em 0;
+}
+
+.about {
+    background-color: rgba(139, 118, 255, 0.164);
+    border-radius: 1em;
+    padding: 2em;
+    margin-top: 50px;
+    box-shadow: 0 1em 3em 1.1em black;
+}
+
+.about hr {
+    width: 100%;
+    margin: 1em 0 2em 0;
+}
+
+.about .profile-image {
+    margin: 30px 0 30px 0;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .7);
+    width: 200px;
+}
+
+.about .loggo {
+    transition: opacity .3s ease;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.about li {
+    font-weight: 300;
+    font-size: 1em;
+    color:rgb(225, 229, 255);
+    letter-spacing: .05em;
+}
+
+.keyword {
+    font-weight: 600;
+    color: white;
+}
+
+.about .img-tag:hover .loggo{
+    opacity: .6;
+}
+
+
+.about .info {
+    text-align: left;
+    font-size: 1.3em;
+}
+
+.about .info a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.info-title {
+      font-weight: 600;
+      font-size: 1.5em;
+      letter-spacing: .1em;
+}
+
+.info p {
+      font-weight: 300;
+      color:rgb(225, 229, 255)
+}
+
+.about .info a:hover {
+    color: rgba(255, 255, 255, 0.767);
+}
+
+.about .loggo {
+    margin: 30px auto;
+}
+
+.about .info .progressbar {
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.about .info .progressbar .fill {
+    position: absolute;
+    border-radius: 7px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        #606dbc,
+        #606dbc 10px,
+        #465298 10px,
+        #465298 20px
+      );
+}
+
+.about .info .progressbar p {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    font-weight: 500;
+}

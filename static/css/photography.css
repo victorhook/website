@@ -1,4 +1,6 @@
-/* -- PHOTO COLLECTIONS -- */
+.photo-container {
+    margin: 10em 0 7em 0;
+}
 
 .photos {
     margin: 80px 50px;
