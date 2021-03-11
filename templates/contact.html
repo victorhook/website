@@ -2,49 +2,69 @@
 
 {% load static %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}" type="text/css">
+{% endblock %}
+
 {% block content %}
 
-<div class="container contact">
+<div class="container contact-container">
 
-    <div class="text-wrapper d-flex justify-content-center">
-            <p>
-                Do you have any questions? <br>
-                Perhaps you just want to reach out to me with some feedback? <br>
-                Or, you might be interested to cooperate with something? <br>
-                Don't hesitate to contact me!
-            </p>
+  <div class="row">
+
+    <div class="inner-contact-container offset-2 col-8">
+
+    <div class="row">
+      <div class="text-wrapper offset-1 col-10">
+        <p>
+          Do you have any questions?
+          Perhaps you just want to reach out to me with some feedback?
+          Or, you might be interested to cooperate with something?
+        </p>
+        <div class="d-flex justify-content-center">
+          <p class="title">
+            Don't hesitate to contact me!
+          </p>
+        </div>
+      </div>
     </div>
 
-    <hr>
+    <div class="row">
 
-    <form action="{% url 'contact' %}" method="POST">
+      <div class="contact-card col-12">
 
-        {% csrf_token %}
+        <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %}
 
-          <div class="row">
-            <div class="form-group col-sm-6 labels">
-              <label>Name:</label>
+            <div class="row">
+              <div class="form-group col-sm-6 labels">
+                <label>Name:</label>
+              </div>
+              <div class="form-group col-sm-6 input">
+                {{ form.name }}
+              </div>
             </div>
-            <div class="form-group col-sm-6 input">
-              <div class="input">{{ form.name }}</div>
+            <div class="row">
+              <div class="form-group col-sm-6 labels">
+                <label>Email (If you want me to get back):</label>
+              </div>
+              <div class="form-group col-sm-6 input">
+                {{ form.mail }}
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-sm-6 labels">
-              <label>Email (If you want me to get back):</label>
+            <div class="form-group message">
+                <label>Message:</label><br>
+                {{ form.message }}
             </div>
-            <div class="form-group col-sm-6 input">
-              {{ form.mail }}
+            <div class="form-group">
+                <input class="button" type="submit" value="Send">
             </div>
-          </div>
-          <div class="form-group message">
-              <label>Message:</label><br>
-              {{ form.message }}
-          </div>
-          <div class="form-group">
-              <input class="button" type="submit" value="Send">
-          </div>
-      </form>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  </div>
 
 </div>
 

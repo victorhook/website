@@ -1,39 +1,40 @@
 {% extends 'index.html' %}
 
-{% block content %}
-
 {% load static %}
 
-  <div class="container">
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+  <div class="container about-container">
 
     <div class="row">
-        <div class="col-sm-4 about about-info">
+        <div class="offset-2 col-8 offset-sm-1 col-sm-10 offset-md-1 col-md-4 offset-lg-0 about about-info">
+            <img class="img-fluid profile-image" src="{% static 'images/profilepic.jpg' %}" alt="Photo of me">
             <h2>Victor Krook</h2>
 
-            <img class="img-fluid profile-image" src="{% static 'images/profilepic.jpg' %}" alt="Photo of me">
             <div class="info">
                 <div class="progressbar">
                     <div class="fill"></div>
                     <p id="progressbar-text" data-percent_engineer={{percent_engineer}}>{{ percent_engineer }} % Engineer</p>
                 </div>
                 <ul>
-                    <li><h3><span style="font-weight:bold;">Age</span>: {{ age }}</h3></li>
-                    <li><h3><span style="font-weight:bold;">Origin</span>: Malmo, Sweden</h3></li>
-                    <li><h3><span style="font-weight:bold;">University</span>: Lunds University</h3></li>
-                    <li><h3><span style="font-weight:bold;">Days until graduation</span>: {{ days_until_graduation }}</h3></li>
+                    <li><span class="keyword">Age</span>: {{ age }}</li>
+                    <li><span class="keyword">Origin</span>: Malmo, Sweden</li>
+                    <li><span class="keyword">University</span>: Lunds University</li>
+                    <li><span class="keyword">Days until graduation</span>: {{ days_until_graduation }}</li>
                     <li style="text-align: center;">
                         <a class="img-tag" href="https://www.lu.se/"><img class="img-fluid loggo" src="{% static 'images/logos/logo_lu.jpg' %}" alt="LTH logo"></a>
                     </li>
 
-
-
                 </ul>
             </div>
         </div>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-7 about">
+        <div class="offset-2 col-8 offset-sm-1 col-sm-10 offset-md-1 col-md-5 col-lg-6 about">
             <div class="info">
-                <h3>Who am I?</h3>
+                <h3 class="info-title">Who am I?</h3>
                 <hr>
                 <p>
                     Hi! <br>
@@ -63,14 +64,6 @@
                     <a href="https://www.bitcraze.io/2020/08/python-client-improvements/">
                     summer 2020</a>.
                 </p>
-                <p> Before I got switched
-                    to the tech-side, I spent all my time working out and loved
-                    pushing my body to its limit. This required discipline and a very
-                    high motivation and determination to reach my goals.
-                    From this I learned skills that I believe are invaluable in life
-                    and it formed me to be the goal-oriented and dedicated person
-                    I am today.
-                </p>
             </div>
         </div>
     </div>
@@ -78,7 +71,10 @@
 
 {% endblock %}
 
-
 {% block script %}
-    <script src="{% static 'js/about.js' %}" type="text/javascript"></script>
+    <script>
+        var percentEngineer = $("#progressbar-text").data("percent_engineer");
+            $(".fill").width(percentEngineer + "%");
+            console.log(percentEngineer + "%");
+    </script>
 {% endblock %}

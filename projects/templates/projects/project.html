@@ -4,82 +4,85 @@
 
 {% block project-content %}
 
-    <div class="col-lg-9 project-content">
+    <div class="container">
+        <div class="row"></div>
 
-        <h1>{{ project.title }}</h1>
-        <hr>
+        <div class="col-lg-11 project-content">
 
-        <div class="description">
-            <ul>
-                <li class="estimate">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <h3>Estimated time:</h3>
+            <h1>{{ project.title }}</h1>
+            <hr>
+
+            <div class="description">
+                <ul>
+                    <li class="estimate">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h3>Estimated time:</h3>
+                            </div>
+                            <div class="col-lg-9">
+                                <p>{{ project.estimated_time }} hours</p>
+                            </div>
                         </div>
-                        <div class="col-lg-10">
-                            <p>{{ project.estimated_time }} hours</p>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h3>Estimated price:</h3>
+                            </div>
+                            <div class="col-lg-9">
+                                <p>{{ project.estimated_price }}  &euro;</p>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <h3>Estimated price:</h3>
+                    <li>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h3>Objective:</h3>
+                            </div>
+                            <div class="col-lg-9">
+                                <p>{{ project.objective }}</p>
+                            </div>
                         </div>
-                        <div class="col-lg-10">
-                            <p>{{ project.estimated_price }}  &euro;</p>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h3>What I learned:</h3>
+                            </div>
+                            <div class="col-lg-9 learned-list">
+                                {{ project.learned|safe }}
+                            </div>
                         </div>
-                    </div>
-                <li>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <h3>Objective:</h3>
-                        </div>
-                        <div class="col-lg-10">
-                            <p>{{ project.objective }}</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <h3>What I learned:</h3>
-                        </div>
-                        <div class="col-lg-10 learned-list">
-                            {{ project.learned|safe }}
-                        </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <img class="img-fluid" src={{ project.image_url }}>
+
+            <hr>
+
+            <div class="body">
+                <h2 class="title">Description</h2>
+
+                <p>
+                    {{ project.body|safe }}
+                </p>
+            </div>
+
+            <div class="date">
+                <p>Created {{ project.date|date:"M d, Y" }} </p>
+            </div>
+
+            <div class="row" id="download-btn">
+                <a href="{% url 'projects' %}/download/{{ project }}">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z"/>
+                        <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z"/>
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                </a>
+            </div>
+
         </div>
-
-        <img class="img-fluid" src={{ project.image_url }}>
-
-        <hr>
-
-        <div class="body">
-            <h2 class="title">Description</h2>
-
-            <p>
-                {{ project.body|safe }}
-            </p>
-        </div>
-
-        <div class="date">
-            <p>Created {{ project.date|date:"M d, Y" }} </p>
-        </div>
-
-        <div class="row" id="download-btn">
-            <a href="{% url 'projects' %}/download/{{ project }}">
-                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z"/>
-                    <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z"/>
-                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z"/>
-                  </svg>
-            </a>
-        </div>
-
-
     </div>
 
 {% endblock %}

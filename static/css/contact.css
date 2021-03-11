@@ -1,0 +1,108 @@
+.contact-container {
+    margin: 10em auto 7em auto;
+
+}
+
+.inner-contact-container {
+    padding: 1em;
+    background-color: rgba(139, 118, 255, 0.164);
+    border-radius: 1em;
+    box-shadow: 0 1em 3em 1.1em black;
+}
+
+.text-wrapper {
+    text-align: left;
+    font-size: 1.2em;
+    color:rgb(225, 229, 255);
+    padding: 1.5em;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 1.5em;
+    color: white;
+    padding: .5em;
+}
+
+.contact-card {
+    padding: 2em;
+}
+
+.labels {
+    text-align: left;
+    font-weight: 2em;
+}
+
+.input {
+    font-size: 1.5em;
+}
+
+label {
+    font-size: 1.5em;
+}
+
+input {
+    width: 100%;
+}
+
+textarea {
+    width: 80%;
+}
+
+.button {
+    width: 30%;
+    font-size: 1.5em;
+    padding: .7em 1.2em;
+    border-radius: 1em;
+    background-color: rgb(95, 95, 255);
+    border: 1px solid transparent;
+    color: white;
+    transition: 0.3s ease-in-out background-color, border;
+}
+
+.button:hover {
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+
+@media screen and (max-width: 900px) {
+    .input {
+      font-size: 1em;
+    }
+    label {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .text-wrapper p {
+        font-size: .7em;
+        padding-bottom: 0;
+    }
+
+    .contact-card  {
+        padding-top: 0;
+    }
+
+    .title {
+        font-size: 1.3em;
+    }
+    .input {
+      font-size: 1em;
+    }
+    label {
+        font-size: .7em;
+    }
+    .button {
+        width: 40%;
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .button {
+        width: 50%;
+        font-size: 1em;
+    }
+}

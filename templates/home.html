@@ -8,63 +8,349 @@
 
 {% block content %}
 
-<div class="row justify-content-center">
-    <header>
-        <div class="overlay"></div>
-        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-          <source src="{% static 'images/home/drone.mp4' %}" type="video/mp4">
-        </video>
-        <div class="container h-100">
-          <div class="d-flex h-100 text-center align-items-center">
-            <div class="w-100 text-white">
-            </div>
-          </div>
+<canvas id="rocket-canvas"></canvas>
+
+<div class="front-page">
+
+    <div class="row">
+        <div class="title-container offset-xl-2 offset-1 col-8">
+            <h1 class="title">Victor Krook</h1>
+            <p class="title-text">I build cool stuff & make the world a better place</p>
         </div>
-    </header>
-</div>
-
-<hr>
-
-<p>The story about</p>
-<h1>Victor Krook</h1>
-
-<hr>
-
-<div class="row">
-
-    <div class="col-lg-5 offset-lg-1 image-frame">
-        <a class="img-tag" href="projects/FPV%20Drone">
-            <div class="outer">
-                <img class="img-fluid" src="{% static 'images/home/drone.jpg' %}">
-            </div>
-        </a>
     </div>
 
-    <div class="col-lg-5">
-        <a class="img-tag" href="projects/Home%20weatherstation%20&%20monitor">
-            <div class="outer">
-                <img class="img-fluid" src="{% static 'images/monitor.jpg' %}">
-            </div>
-        </a>
+    <!-- Buttons -->
+    <div class="row">
+        <div class="button-container offset-lg-2 offset-sm-1 offset-0 col-xl-8 col-lg-9">
+            <a class="button primary" href="#">Check it out</a>
+            <a class="button secondary" href="#">Contact me</a>
+        </div>
     </div>
 
-    <div class="col-lg-5 offset-lg-1">
-        <a class="img-tag" href="{% url 'about' %}">
-            <div class="outer">
-                <img class="img-fluid" src="{% static 'images/home/toolkits.jpg' %}">
-            </div>
-        </a>
-    </div>
 
-    <div class="col-lg-5">
-        <a class="img-tag" href="{% url 'about' %}">
-            <div class="outer">
-                <img class="img-fluid" src="{% static 'images/profilepic.jpg' %}">
-            </div>
-        </a>
+    <!-- Bouncing down button -->
+    <div id="down-button-container">
+        <div class="bounce">
+            <a id="down-button" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+                </svg>
+            </a>
+        </div>
     </div>
 
 </div>
+
+
+
+<div class="image-container">
+
+    <!-- Bouncing up button -->
+    <div class="up-button" id="up-button-container">
+        <div class="bounce">
+            <a id="up-button" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                </svg>
+                <p>Back to top</p>
+            </a>
+        </div>
+    </div>
+
+    <canvas id="drone-canvas"></canvas>
+
+    <div class="row image-content">
+        <div class="image-text offset-1 col-4 d-flex align-items-center">
+            <p>Custom built FPV Drone</p>
+        </div>
+        <div class="col-6">
+            <div class="front-image-frame">
+                <a href="#" class="image-link">
+
+                <div class="inner-text-container">
+                    <div class="inner-inner-text">
+                        <p class="inner-text">Read more</p>
+                    </div>
+                </div>
+
+                <img class="img-fluid front-image" src="{% static 'images/home/drone.jpg' %}">
+                </a>
+                </div>
+        </div>
+    </div>
+
+    <div class="row image-content">
+        <div class="offset-1 col-6">
+            <div class="front-image-frame">
+                <a href="#" class="image-link">
+
+                <div class="inner-text-container">
+                    <div class="inner-inner-text">
+                        <p class="inner-text">Read more</p>
+                    </div>
+                </div>
+                <img class="img-fluid front-image" src="{% static 'images/home/monitor.jpg' %}">
+                </a>
+                </div>
+        </div>
+        <div class="image-text col-4 d-flex align-items-center">
+            <p>DIY home weather monitoring system</p>
+        </div>
+    </div>
+
+    <div class="row image-content">
+        <div class="image-text offset-1 col-4 d-flex align-items-center">
+            <p>Ready to take on new challanges</p>
+        </div>
+        <div class="col-6">
+            <div class="front-image-frame">
+                <a href="#" class="image-link">
+
+                <div class="inner-text-container">
+                    <div class="inner-inner-text">
+                        <p class="inner-text">Read more</p>
+                    </div>
+                </div>
+                <img class="img-fluid front-image" src="{% static 'images/profilepic.jpg' %}">
+                </a>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="circles">
+    <div class="circle fadeIn"></div>
+    <div class="circle fadeIn"></div>
+    <div class="circle fadeIn"></div>
+</div>
+
+<div class="fly fadeIn">
+    <p id="fly-text">Let's go flying!</p>
+    <div class="video-container">
+        <video autoplay loop muted id="video-bg">
+          <source src="{% static 'images/home/drone.mp4' %}" type="video/mp4" />
+        </video>
+    </div>
+</div>
+
+
+
+
+<script>
+    document.getElementById('down-button').onclick = e => {
+        e.preventDefault();
+        window.scrollTo(0, window.innerHeight);
+    };
+
+    document.getElementById('up-button').onclick = e => {
+        e.preventDefault();
+        window.scrollTo(0, 0);
+    }
+
+    document.addEventListener('scroll', e => {
+        if (window.scrollY >= window.outerHeight - 200) {
+            $('#up-button-container').fadeIn(500);
+            $('#down-button-container').fadeOut(500);
+        } else {
+            $('#up-button-container').fadeOut(500);
+            $('#down-button-container').fadeIn(500);
+        }
+    })
+
+    $('#up-button-container').fadeOut(0);
+
+</script>
+
 
 {% endblock %}
+
+{% block script %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://82mou.github.io/threejs/js/OrbitControls.js"></script>
+    <script src="{% static 'js/home.js' %}" type="text/javascript"></script>
+
+    <script>
+            const PROP_ROTATION_SPEED = 0.2;
+
+            const droneCavnas = document.getElementById('drone-canvas');
+
+
+            /* Rocket scene */
+            const rocketCanvas = document.getElementById('rocket-canvas');
+			const rocketScene = new THREE.Scene();
+			const rocketCamera = new THREE.PerspectiveCamera(75,
+                                        window.innerWidth / window.innerHeight,
+                                        0.1, 1000);
+            rocketCamera.position.z = 10;
+			const rocketRenderer = new THREE.WebGLRenderer({
+                canvas: rocketCanvas,
+                alpha: true
+            });
+			rocketRenderer.setSize( window.innerWidth, window.innerHeight);
+
+            // Add lighting
+            const light = new THREE.PointLight(0xffffff, 1, 100);
+            light.position.set(10, 10, 10);
+            rocketScene.add(light);
+
+
+            /* Drone scene */
+			const droneScene = new THREE.Scene();
+            const droneCamera = new THREE.PerspectiveCamera(75,
+                                        window.innerWidth / window.innerHeight,
+                                        0.1, 1000);
+            droneCamera.position.z = 10;
+			const droneRenderer = new THREE.WebGLRenderer({
+                canvas: droneCavnas,
+                alpha: true
+            });
+			droneRenderer.setSize(window.innerWidth, window.innerHeight);
+            droneScene.add(light);
+
+            const loader = new THREE.GLTFLoader();
+
+            let rocket;
+            let drone;
+            let props = [];
+            let signs = [-1, -1, 1, 1];
+
+            loadRocket();
+            loadDrone();
+
+            const animateDrone = () => {
+                requestAnimationFrame(animateDrone);
+                droneRenderer.render(droneScene, droneCamera);
+                if (drone != undefined) {
+                    rotateProps();
+                    moveDrone();
+                }
+            }
+
+			const animateRocket = function () {
+				requestAnimationFrame(animateRocket);
+				rocketRenderer.render(rocketScene, rocketCamera);
+
+                if (rocket != undefined) {
+                    moveRocket();
+                }
+			};
+
+            function loadDrone() {
+                loader.load( '/static/models/drone.gltf', function ( gltf ) {
+                    droneScene.add(gltf.scene);
+                    drone = gltf.scene;
+
+                    for (let i = 0; i < 4; i++) {
+                        props[i] = gltf.scene.getObjectByName(`props${i+1}`);
+                    }
+
+                    let newY = (window.outerWidth / 1000) * 2;
+                    let newX = -(window.outerWidth / 1000) * 2;
+                    drone.translateX(newX);
+                    drone.translateY(newY);
+                    drone.rotateY(1);
+                    drone.rotateZ(0.5);
+
+                }, undefined, function ( error ) {
+                    console.error( error );
+                } );
+            }
+
+            function loadRocket() {
+                loader.load( '/static/models/rocket.gltf', function ( gltf ) {
+                    rocketScene.add(gltf.scene);
+                    rocket = gltf.scene.getObjectByName('rocket');
+
+                    let newX = (window.outerWidth / 1000) * 4;
+                    rocket.position.x += newX;
+                }, undefined, function ( error ) {
+                    console.error( error );
+                } );
+            }
+
+            function rotateProps() {
+                for (let i = 0; i < 4; i++) {
+                    if (props[i] != undefined) {
+                        props[i].rotation.y -= signs[i] * PROP_ROTATION_SPEED;
+                    }
+                }
+            }
+
+            // Drone stats
+            let droneSpeed = {
+                x: -0.01,
+                y: -0.005,
+                z: 0
+            };
+            let droneDAngle = {
+                x: 0.005,
+                y: 0,
+                z: 0
+            };
+            let droneAngle = {
+                x: 0,
+                y: 0,
+                z: 0
+            };
+
+
+            function moveDrone() {
+                drone.translateX(droneSpeed.x);
+                drone.translateY(droneSpeed.y);
+                drone.rotateX(droneDAngle.x);
+                drone.rotateY(droneDAngle.y);
+
+                if (droneAngle.x > 1) {
+                    droneDAngle.x = 0;
+                    droneDAngle.y = 0.005;
+                }
+
+                if (droneAngle.y > 1) {
+                    droneDAngle.y = 0;
+                    droneDAngle.x = 0.05;
+                }
+
+
+                droneAngle.x += droneDAngle.x;
+                //drone.rotateY(droneDAngle);
+                //droneAngle += droneDAngle;
+            }
+
+            // Rocket stats
+            let angle = 0;
+            let dAngle = 0.005;
+            let dSpeed = -0.005;
+
+            function moveRocket() {
+                rocket.position.x -= dSpeed;
+                rocket.position.y += dSpeed;
+                rocket.rotation.z += dAngle;
+
+                angle += dAngle;
+                if (angle > 1) {
+                    dSpeed = 0.05;
+                    dAngle = 0.0005;
+                }
+
+                if (Math.abs(rocket.position.x) > 20) {
+                    respawnRocket();
+                }
+            }
+
+            function respawnRocket() {
+                rocket.position.x = 20;
+                rocket.position.y = -10;
+                rocket.position.z = 0;
+                rocket.rotation.x = 0;
+                rocket.rotation.y = 0;
+                rocket.rotation.z = 1;
+            }
+
+			animateRocket();
+            animateDrone();
+  </script>
+{% endblock %}
+
 
