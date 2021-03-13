@@ -5,9 +5,9 @@
 {% block project-content %}
 
     <div class="container">
-        <div class="row"></div>
+        <div class="row">
 
-        <div class="col-lg-11 project-content">
+        <div class="col-12 project-content">
 
             <h1>{{ project.title }}</h1>
             <hr>
@@ -16,40 +16,48 @@
                 <ul>
                     <li class="estimate">
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-4">
                                 <h3>Estimated time:</h3>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-8">
                                 <p>{{ project.estimated_time }} hours</p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-4">
                                 <h3>Estimated price:</h3>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-8">
                                 <p>{{ project.estimated_price }}  &euro;</p>
                             </div>
                         </div>
                     <li>
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-4">
                                 <h3>Objective:</h3>
                             </div>
-                            <div class="col-lg-9">
-                                <p>{{ project.objective }}</p>
+                            <div class="col-8 objective-list">
+                                <ul>
+                                    {% for objective in project.objectives %}
+                                    <li>{{ objective }}</li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-4">
                                 <h3>What I learned:</h3>
                             </div>
-                            <div class="col-lg-9 learned-list">
-                                {{ project.learned|safe }}
+                            <div class="col-8 learned-list">
+                                <ul>
+                                    {% for experience in project.experiences %}
+                                        <li>{{ experience }}</li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                         </div>
                     </li>
@@ -73,7 +81,7 @@
             </div>
 
             <div class="row" id="download-btn">
-                <a href="{% url 'projects' %}/download/{{ project }}">
+                <a href="{% url 'projects' %}/download/{{ project }}" data-toggle="tooltip" data-placement="top" title="Download project as PDF">
                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z"/>
                         <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z"/>

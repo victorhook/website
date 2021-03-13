@@ -17,11 +17,15 @@ def all_projects(request):
 
 
 def show_project(request, project):
-
     IMAGES = '/static/images'
 
     projects = Project.objects.all()
     project = Project.objects.get(title=project)
+
+    # Objectives and lessons learned from the project are represented as
+    # a string, where \n means a new entity.
+    project.experiences = project.learned.split('\n')
+    project.objectives = project.objective.split('\n')
     project.image_url = IMAGES + project.image.url
 
     return render(request, 'project.html', {'projects': projects,

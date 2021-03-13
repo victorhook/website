@@ -1,13 +1,20 @@
 
 .projects {
-    margin-top: 150px;
+    margin-top: 7em;
     font-size: 1.5em;
+}
+
+.sidebar-container {
+    padding: 1em;
+}
+
+.project-content {
+    padding: 1em;
 }
 
 .projects .sidebar {
     background-color: rgba(255, 255, 255, .3);
     border-radius: 5px;
-    margin: 50px 100px 0 50px;
     height: 100%;
     padding: 30px;
 }
@@ -16,17 +23,18 @@
     font-weight: 600;
 }
 
-.projects .sidebar ul {
+.project-list {
     text-align: left;
+    list-style: lower-greek;
 }
 
 .projects .sidebar li {
-    padding: 10px 0;
+    padding: .5em 0 0 .5em;
   }
 
 .projects .sidebar a {
     text-decoration: none;
-    color: black;
+    color: rgb(0, 0, 0);
     transition: color .3s ease;
   }
 
@@ -78,13 +86,17 @@
     margin: 30px auto;
 }
 
-.project-content .learned-list ul {
-    list-style: circle;
+.objective-list ul,
+.learned-list ul {
+    list-style-image: url("/static/images/rocket.svg");
 }
 
-.project-content .learned-list li {
-    margin: 5px;
+.objective-list li,
+.learned-list li {
+    padding: .5em;
+    background-color: #605e7244;
 }
+
 
 
 .project-content .date {

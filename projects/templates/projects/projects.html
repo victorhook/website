@@ -8,29 +8,31 @@
 
 {% block content %}
 
-
-    <div class="row projects">
-        <div class="col-2 sidebar">
-            <h2>Projects</h2>
-            <hr>
-            <ul>
-                {% for project in projects %}
-                    <li><a href="{% url 'projects' %}/{{ project }}">{{ project }}</a></li>
-                {% endfor %}
-            </ul>
-
+    <div class="projects row align-items-start">
+        <div class="sidebar-container col-sm-12 col-md-4">
+            <div class="sidebar">
+                <h2>Projects</h2>
+                <hr>
+                <ul class="project-list">
+                    {% for project in projects %}
+                        <li><a href="{% url 'projects' %}/{{ project }}">{{ project }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
 
-        {% block project-content %}
-        <div class="col-8">
-            <h1>Projects</h1>
-            <hr>
-            <p>
-                Here you can browse through my different projects.
-                If you have any questions, tips or ideas, don't hesitate to contact me!
-            </p>
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="project-content">
+                {% block project-content %}
+                <h1>Projects</h1>
+                <hr>
+                <p>
+                    Here you can browse through my different projects.
+                    If you have any questions, tips or ideas, don't hesitate to contact me!
+                </p>
+                {% endblock %}
+            </div>
         </div>
-        {% endblock %}
 
     </div>
 
