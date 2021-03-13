@@ -88,6 +88,9 @@ hr {
 
 .navbar-collapse {
   text-align: left;
+}
+
+.navbarcollapsed {
   background-color: #0c0833;
 }
 
