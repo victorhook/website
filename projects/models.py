@@ -18,6 +18,7 @@ class Project(models.Model):
     # Date of creation
     date = models.DateTimeField()
 
+    github_link = models.CharField(max_length=255, null=True)
 
     def __str__(self):
         return self.title
