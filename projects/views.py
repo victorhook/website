@@ -1,4 +1,5 @@
 from datetime import date
+import re
 
 from django.shortcuts import render
 from django.http import FileResponse
@@ -16,6 +17,20 @@ def all_projects(request):
                                              'current_year': date.today().year})
 
 
+def inject_a_tag(project):
+    """ Replaces LINK[url](name) with an html a-tag. """
+    links = re.findall('LINK\[.*?\]', project.body)
+    link_names = re.findall('LINK\[.*?\]\(.*?\)', project.body)
+
+    for link, whole_link in zip(links, link_names):
+        url = link.split('LINK[')[1][:-1]
+        name = whole_link[len(link):][1:-1]
+
+        new_tag = f'<a href="{url}">{name}</a>'
+        project.body = project.body.replace(whole_link, new_tag)
+
+    return project
+
 def show_project(request, project):
     IMAGES = '/static/images'
 
@@ -27,6 +42,8 @@ def show_project(request, project):
     project.experiences = project.learned.split('\n')
     project.objectives = project.objective.split('\n')
     project.image_url = IMAGES + project.image.url
+
+    project = inject_a_tag(project)
 
     return render(request, 'project.html', {'projects': projects,
                                             'project': project,
