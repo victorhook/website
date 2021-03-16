@@ -7,16 +7,16 @@
     <div class="container">
         <div class="row">
 
-        <div class="col-12 project-content">
+        <div class="col-12 project-content-inner">
 
-            <h1>{{ project.title }}</h1>
+            <h1 class="project-title">{{ project.title }}</h1>
             <hr>
 
             <div class="description">
                 <ul>
                     <li class="estimate">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <h3>Estimated time:</h3>
                             </div>
                             <div class="col-8">
@@ -26,7 +26,7 @@
                     </li>
                     <li>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <h3>Estimated price:</h3>
                             </div>
                             <div class="col-8">
@@ -37,7 +37,7 @@
                     {% if project.github_link %}
                     <li>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <h3>Github:</h3>
                             </div>
                             <div class="col-8">
@@ -48,13 +48,13 @@
                     {% endif %}
                     <li>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <h3>Objective:</h3>
                             </div>
                             <div class="col-8 objective-list">
                                 <ul>
                                     {% for objective in project.objectives %}
-                                    <li>{{ objective }}</li>
+                                    <li><span class="cool-li">{{ objective }}</span></li>
                                     {% endfor %}
                                 </ul>
                             </div>
@@ -62,13 +62,13 @@
                     </li>
                     <li>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <h3>What I learned:</h3>
                             </div>
                             <div class="col-8 learned-list">
                                 <ul>
                                     {% for experience in project.experiences %}
-                                        <li>{{ experience }}</li>
+                                        <li><span class="cool-li">{{ experience }}</span></li>
                                     {% endfor %}
                                 </ul>
                             </div>
