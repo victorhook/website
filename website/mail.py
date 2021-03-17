@@ -28,7 +28,9 @@ class MailMan:
     @staticmethod
     def send_mail(username, password, recipient, body, subject=None):
         if MailMan.is_spam(body):
-            return
+            print('New spam mail spotted from %s' % recipient)
+            #return
+
         server_ssl = smtplib.SMTP_SSL(MailMan.SERVER, MailMan.PORT)
         server_ssl.login(username, password)
         msg = MailMan._create_message(body, username, recipient, subject)
