@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/skills.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+<div class="skills-container container">
+
+    <div class="row">
+
+        <div class="skill-card offset-2 col-8 offset-lg-1 col-lg-5 offset-xl-0 col-xl-4">
+            <div class="skill-card-inner">
+                <div class="skill-card-title">
+                    <img class="skill-card-image" src="{% static '/images/skills/prog.svg' %}">
+                    <h3>Programming</h3>
+                </div>
+                <ul>
+                    <li class="skill-card-item">Python</li>
+                    <li class="skill-card-item">Java</li>
+                    <li class="skill-card-item">C/C++</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="skill-card offset-2 col-8 offset-lg-0 col-lg-5 col-xl-4">
+            <div class="skill-card-inner">
+                <div class="skill-card-title">
+                    <img class="skill-card-image" src="{% static '/images/skills/web.svg' %}">
+                    <h3>Web Development</h3>
+                </div>
+                <ul>
+                    <li class="skill-card-item">HTML</li>
+                    <li class="skill-card-item">CSS</li>
+                    <li class="skill-card-item">Javascript</li>
+                    <li class="skill-card-item">Django</li>
+                    <li class="skill-card-item">React</li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="skill-card offset-2 col-8 offset-lg-1 col-lg-5 offset-xl-0 col-xl-4">
+            <div class="skill-card-inner">
+                <div class="skill-card-title">
+                    <img class="skill-card-image" src="{% static '/images/skills/linux.svg' %}">
+                    <h3>OS/Embedded</h3>
+                </div>
+                <ul>
+                    <li class="skill-card-item">Linux & bash</li>
+                    <li class="skill-card-item">AVR Atmega</li>
+                    <li class="skill-card-item">Raspberry Pi</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
