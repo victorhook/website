@@ -8,64 +8,55 @@
 
 {% block content %}
 
-<div class="container contact-container">
+<div class="contact-container container">
 
   <div class="row">
 
-    <div class="inner-contact-container offset-2 col-8">
+    <div class="contact-card offset-1 col-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
 
-    <div class="row">
-      <div class="text-wrapper offset-1 col-10">
-        <p>
-          Do you have any questions?
-          Perhaps you just want to reach out to me with some feedback?
-          Or, you might be interested to cooperate with something?
-        </p>
-        <div class="d-flex justify-content-center">
-          <p class="title">
-            Don't hesitate to contact me!
-          </p>
+    <div class="contact-title">
+      <p>Contact me!</p>
+    </div>
+
+    <form action="{% url 'contact' %}" method="POST" class="container">
+
+        {% csrf_token %}
+
+        <div class="row label-row">
+          <div class="col-12 label-wrapper">
+            <label>Name:</label>
+          </div>
         </div>
-      </div>
-    </div>
+        <div class="row">
+          <input class="col-12" id="id_name" maxlength="100" minlength="3" name="name" required="" type="text">
+        </div>
 
-    <div class="row">
+        <div class="row label-row">
+          <div class="col-12 label-wrapper">
+            <label>Email (If you want me to get back):</label>
+          </div>
+        </div>
+        <div class="row">
+          <input class="col-12" id="id_mail" name="mail" type="email">
+        </div>
 
-      <div class="contact-card col-12">
+        <div class="row label-row">
+          <div class="col-12 label-wrapper">
+            <label>Message:</label>
+          </div>
+        </div>
+        <div class="row">
+          <textarea class="col-12" cols="40" id="id_message" minlength="10" name="message" required="" rows="5"></textarea>
+        </div>
 
-        <form action="{% url 'contact' %}" method="POST">
-          {% csrf_token %}
+        <div class="form-group">
+          <input class="button primary" type="submit" value="Send">
+        </div>
 
-            <div class="row">
-              <div class="form-group col-sm-6 labels">
-                <label>Name:</label>
-              </div>
-              <div class="form-group col-sm-6 input">
-                {{ form.name }}
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-sm-6 labels">
-                <label>Email (If you want me to get back):</label>
-              </div>
-              <div class="form-group col-sm-6 input">
-                {{ form.mail }}
-              </div>
-            </div>
-            <div class="form-group message">
-                <label>Message:</label><br>
-                {{ form.message }}
-            </div>
-            <div class="form-group">
-                <input class="button" type="submit" value="Send">
-            </div>
-        </form>
-
-      </div>
-    </div>
-  </div>
+    </form>
   </div>
 
+  </div>
 </div>
 
 {% endblock %}
