@@ -11,12 +11,16 @@ from .pdfcreator import PdfCreator
 IMAGES = '/static/images'
 
 
-def all_projects(request):
+def get_all_projects():
     projects = Project.objects.all()
     for project in projects:
         project.image_url = IMAGES + project.image.url
+    return projects
 
-    return render(request, 'projects.html', {'projects': projects,
+
+def all_projects(request):
+    
+    return render(request, 'projects.html', {'projects': get_all_projects(),
                                              'current_year': date.today().year})
 
 
@@ -35,7 +39,7 @@ def inject_a_tag(project):
     return project
 
 def show_project(request, project):
-    projects = Project.objects.all()
+    projects = get_all_projects()
     project = Project.objects.get(title=project)
 
     # Objectives and lessons learned from the project are represented as

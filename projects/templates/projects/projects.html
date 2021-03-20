@@ -8,16 +8,16 @@
 
 {% block content %}
 
-{% block front_only %}
-    <div class="row">
-        <div class="col-12">
-            <div class="image-container">
-                <img class="background-image" src="{% static '/images/projects/solder.JPG' %}">
+    {% block front_only %}
+        <div class="row">
+            <div class="col-12">
+                <div class="image-container">
+                    <img class="background-image" src="{% static '/images/projects/solder.JPG' %}">
+                </div>
+                <canvas id="3d-canvas"></canvas>
             </div>
-            <canvas id="3d-canvas"></canvas>
         </div>
-    </div>
-{% endblock %}
+    {% endblock %}
 
     <div class="projects row align-items-start">
 
@@ -31,7 +31,8 @@
                             <a class="sidebar-link" href="{% url 'projects' %}/{{ project }}">
                                 <div class="project-image-hover">
                                     <!-- <img src="{{ project.image_url }}" alt="Project image" width="300">-->
-                                    <img src="{% static '/images/projects/solder.JPG' %}" alt="Project image">
+                                    <img src="{{ project.image_url }}" alt="Project image">
+                                    
                                 </div>
                                 {{ project }}
                             </a>
@@ -40,6 +41,7 @@
                     {% endfor %}
                 </ul>
             </div>
+
         </div>
 
         <div class="project-content offset-lg-1 col-lg-10 offset-xl-0 col-xl-8">
@@ -71,7 +73,7 @@
     </div>
 
 
-{% endblock %}
+    {% endblock %}
 
 
 {% block script %}
