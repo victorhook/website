@@ -10,6 +10,7 @@
 
 .project-content {
     padding: 1em 2em;
+    position: relative;
 }
 
 .projects .sidebar {
@@ -21,6 +22,7 @@
 
 .projects .sidebar h2 {
     font-weight: 600;
+    color: white;
 }
 
 .project-list {
@@ -33,14 +35,17 @@
 }
 
 .projects .sidebar li {
-    padding: .5em 0 0 1em;
     color:rgb(202, 209, 245);
+    position: relative;
+    padding: .3em .5em;
 }
 
 .projects .sidebar a {
     text-decoration: none;
     color:rgb(202, 209, 245);
     transition: color .3s ease;
+    padding: 0;
+    font-size: 1.1em;
 }
 
 .project-content-inner {
@@ -52,6 +57,111 @@
     color: white;
 }
 
+/* -- Sidebar Hover -- */
+
+.sidebar-link {
+    position: relative;
+    overflow: visible;
+}
+
+.projects .sidebar a:hover .project-image-hover {
+    opacity: 1;
+    z-index: 10;
+}
+
+.project-image-hover {
+    position: absolute;
+    top: 0;
+    left: 10em;
+    padding: .5em;
+    border-radius: .5em;
+    background-color: #4A4B94;
+    box-shadow: 0 .7em 2em .03em rgb(134, 136, 251);
+    opacity: 0;
+    z-index: -10;
+    transition: 0.2s opacity;
+}
+
+.project-image-hover img {
+    border-radius: .5em;
+    width: 300px;
+}
+
+@media screen and (max-width: 500px) {
+    .project-image-hover {
+        width: "200px";
+        left: 5em;
+    }
+    .project-image-hover img {
+        border-radius: .5em;
+        width: 200px;
+    }
+}
+
+
+/* -- Main page -- */
+
+.project-title {
+    text-align: left;
+}
+
+.project-title h1 {
+    font-size: 1.2em;
+}
+
+.project-title h4 {
+    margin-top: .5em;
+}
+
+
+.arrow-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 6em;
+    margin-top: 2em;
+}
+
+#arrow {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 30%;
+    right: 70%;
+    fill: #4A4B94;
+    stroke-width: 3px;
+    transform: scale(-1);
+    animation: arrowSlide 2s infinite;
+}
+
+#flip-button {
+    margin-top: 2em;
+    font-size: 1em;
+}
+
+@keyframes arrowSlide {
+    0%   {left: 80px;}
+    20%  {left: -80px;}
+    100%   {left: 80px;}
+}
+
+@media screen and (max-width: 1200px) {
+    .arrow-container {
+        visibility: hidden;
+        height: 0;
+    }
+    #flip-button {
+        visibility: hidden;
+        height: 0;
+    }
+    .project-content {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        height: 15em;
+    }
+}
+
+/* -- Body -- */
 
 .project-content .description, .body {
     text-align: left;
@@ -72,7 +182,9 @@
 }
 
 .project-title {
-    font-size: 2em;
+    font-size: 2.5em;
+    padding: .5em;
+    margin-top: .5em;
 }
 
 .project-content li {
@@ -84,7 +196,7 @@
     width: 100%;
 }
 
-.project-content img {
+.project-image {
     width: 600px;
     margin: 50px auto;
 }
@@ -113,6 +225,20 @@
     background-color: #76748844;
 }
 
+@media screen and (max-width: 900px) {
+    .project-title {
+        font-size: 2em;
+    }
+    .cool-li {
+        font-size: 1em;
+        padding: .25em .5em;
+        margin-left: .5em;
+    }
+    h3 {
+        font-size: 1em;
+    }
+}
+
 
 
 .project-content .date {
@@ -138,3 +264,68 @@
 #download-btn a:hover {
     color: rgba(255, 255, 255, 0.767);
 }
+
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.mini-card {
+    display: inline-block;
+    position: relative;
+    perspective: 100px;
+    cursor: p;
+}
+
+.mini-card-inner {
+    background-color: rgb(40, 4, 240);
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 .7em 2em .03em rgb(134, 136, 251);
+    border: 2px solid transparent;
+    transition: 0.3s ease-in-out transform, border;
+}
+
+.mini-card-text {
+    font-size: 1.5em;
+}
+
+.mini-card a {
+    text-decoration: none;
+}
+
+.mini-card:hover .mini-card-inner{
+    transform-style: preserve-3d;
+    border: 2px solid white;
+    transform: rotateY(12deg);
+}
+
+.mini-container {
+    padding: 1em 0;
+}
+
+.image-container {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    opacity: .25;
+}
+
+#second-image {
+    width: 100%;
+}
+
+.body p {
+    padding: 1em;
+    box-shadow: 0 0 .05em .05em rgb(134, 136, 251);
+}
+

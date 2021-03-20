@@ -4,7 +4,7 @@
 }
 
 .about {
-    background-color: rgba(139, 118, 255, 0.164);
+    background-color: #4A4B94;
     border-radius: 1em;
     padding: 2em;
     margin-top: 50px;
@@ -17,9 +17,8 @@
 }
 
 .about .profile-image {
-    margin: 30px 0 30px 0;
+    margin: 1em 0 2em;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, .7);
     width: 200px;
 }
 
@@ -84,6 +83,7 @@
     margin-bottom: 20px;
     text-align: center;
     position: relative;
+    margin-bottom: 2em;
 }
 
 .about .info .progressbar .fill {
@@ -94,10 +94,10 @@
     height: 100%;
     background: repeating-linear-gradient(
         45deg,
-        #606dbc,
-        #606dbc 10px,
-        #465298 10px,
-        #465298 20px
+        #0b165c,
+        #0b165c 10px,
+        #38448a 10px,
+        #38448a 20px
       );
 }
 

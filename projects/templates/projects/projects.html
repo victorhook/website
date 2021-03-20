@@ -8,31 +8,206 @@
 
 {% block content %}
 
+{% block front_only %}
+    <div class="row">
+        <div class="col-12">
+            <div class="image-container">
+                <img class="background-image" src="{% static '/images/projects/solder.JPG' %}">
+            </div>
+            <canvas id="3d-canvas"></canvas>
+        </div>
+    </div>
+{% endblock %}
+
     <div class="projects row align-items-start">
-        <div class="sidebar-container col-lg-3 offset-lg-0 offset-md-1 col-md-10">
+
+        <div class="sidebar-container offset-lg-1 col-lg-10 offset-xl-0 col-xl-3">
             <div class="sidebar">
-                <h2>Projects</h2>
+                <a href="{% url 'projects' %}"><h2>Projects</h2></a>
                 <hr>
                 <ul class="project-list">
                     {% for project in projects %}
-                        <li><a href="{% url 'projects' %}/{{ project }}">{{ project }}</a></li>
+                        <li>
+                            <a class="sidebar-link" href="{% url 'projects' %}/{{ project }}">
+                                <div class="project-image-hover">
+                                    <!-- <img src="{{ project.image_url }}" alt="Project image" width="300">-->
+                                    <img src="{% static '/images/projects/solder.JPG' %}" alt="Project image">
+                                </div>
+                                {{ project }}
+                            </a>
+
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
 
-        <div class="project-content col-lg-9 offset-lg-0 offset-md-1 col-md-10">
+        <div class="project-content offset-lg-1 col-lg-10 offset-xl-0 col-xl-8">
             {% block project-content %}
-            <h1 class="project-title">Projects</h1>
-            <hr>
-            <p>
-                Here you can browse through my different projects.
-                If you have any questions, tips or ideas, don't hesitate to contact me!
-            </p>
+
+            <div class="project-title">
+                <h1>Check out my awesome projects</h1>
+                <h4>... get inspired and learn something new!</h4>
+            </div>
+
+            <!-- Arrow -->
+            <div class="arrow-container">
+                <svg id="arrow" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="123.964px" height="123.964px" viewBox="0 0 123.964 123.964" xml:space="preserve">
+                        <g><path d="M121.7,57.681L83,26.881c-4-3.1-10-0.3-10,4.8v10.3c0,3.3-2.2,6.2-5.5,6.2H6c-3.3,0-6,2.4-6,5.8v16.2c0,3.2,2.7,6,6,6h61.5
+                                c3.3,0,5.5,2.601,5.5,5.9v10.3c0,5,6,7.8,9.9,4.7l38.6-30C124.7,64.781,124.8,60.081,121.7,57.681z" /></g>
+                </svg>
+            </div>
+
+            <button id="flip-button" class="button primary">Insane Flip</button>
+
             {% endblock %}
         </div>
 
+        {% block bottom %}
+
+        {% endblock %}
+
     </div>
 
+
 {% endblock %}
+
+
+{% block script %}
+    <script>
+        /* Enable image on-hover for sidebar! */
+        const mouse = {x: null, y: null};
+        let k;
+        for (let link of document.getElementsByClassName('sidebar-link')) {
+            let image = link.children[0];
+
+            link.startPos = {
+                x: parseInt(getComputedStyle(image).left),
+                y: parseInt(getComputedStyle(image).top)
+            };
+
+            link.onmousemove = e => {
+                if (mouse.x != null) {
+                    const dx = e.clientX - mouse.x;
+                    const dy = e.clientY - mouse.y;
+                    if (dx == 0)
+                        return;
+
+                    let newX = parseInt(getComputedStyle(image).left) + dx;
+                    let newY = parseInt(getComputedStyle(image).top) + dy;
+
+                    image.style.left = `${newX}px`;
+                    image.style.top = `${newY}px`;
+                }
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            }
+            link.onmouseleave = () => {
+                image.style.left = `${link.startPos.x}px`;
+                image.style.top = `${link.startPos.y}px`;
+            }
+        }
+    </script>
+
+    {% block project_js %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.js"></script>
+        <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+        <script src="https://82mou.github.io/threejs/js/OrbitControls.js"></script>
+        <script src="{% static 'js/drone.js' %}" type="text/javascript"></script>
+
+        <script>
+
+            const canvas = document.getElementById('3d-canvas');
+            const scene = new THREE.Scene();
+            scene.translateY(-20);
+            const camera = new THREE.PerspectiveCamera(45,
+                                        window.innerWidth / window.innerHeight,
+                                        0.1, 1000);
+            camera.position.set(0, 0, 50);
+
+            const renderer = new THREE.WebGLRenderer({canvas: canvas, alpha: true});
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            //const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            const loader = new THREE.GLTFLoader();
+
+            // Add lighting
+            const light = new THREE.PointLight(0xffffff, 1, 100);
+            light.position.set(10, 10, 10);
+            scene.add(light);
+
+            let drone = new Drone();
+            let objects = [];
+
+            let params = {scene: scene, camera: camera};
+
+            loader.load('/static/models/drone.gltf', gltf =>  {
+                    scene.add(gltf.scene);
+                    drone.load(gltf.scene, params);
+                    objects.push(drone);
+            });
+            loader.load( '/static/models/car.glb', function (gltf) {
+                for (let i = 0; i < 5; i++) {
+                    let car = new Car();
+                    car.load(gltf.scene.clone());
+                    scene.add(car.scene)
+                    objects.push(car);
+                }
+            });
+
+
+            let clock = new Clock();
+
+            const animate = () => {
+                    requestAnimationFrame(animate);
+                    clock.start();
+                    renderer.render(scene, camera);
+
+                    let elapsedTime = clock.getElapsedTime();
+
+                    for (let obj of objects) {
+                        obj.move(elapsedTime);
+                    }
+            }
+
+            document.getElementById('flip-button').onclick = () => {
+                drone.flip();
+            }
+
+
+            let swapped = false;
+            window.onresize = swapDivOrder;
+
+            function swapDivOrder() {
+                let swap = () => {
+                    let parent = document.getElementsByClassName('projects')[0];
+                    let first = parent.children[0];
+                    parent.removeChild(first);
+                    parent.appendChild(first);
+                };
+
+                if (window.innerWidth < 1200) {
+                    if (swapped)
+                        return;
+                    swap();
+                    swapped = true;
+                } else {
+                    if (swapped) {
+                        swap();
+                        swapped = false;
+                    }
+                }
+            }
+
+
+            swapDivOrder();
+            animate();
+        </script>
+
+    {% endblock %}
+
+{% endblock %}
+
+
 

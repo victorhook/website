@@ -8,10 +8,13 @@ from django.conf import settings
 from .models import Project
 from .pdfcreator import PdfCreator
 
+IMAGES = '/static/images'
+
 
 def all_projects(request):
-
     projects = Project.objects.all()
+    for project in projects:
+        project.image_url = IMAGES + project.image.url
 
     return render(request, 'projects.html', {'projects': projects,
                                              'current_year': date.today().year})
@@ -32,8 +35,6 @@ def inject_a_tag(project):
     return project
 
 def show_project(request, project):
-    IMAGES = '/static/images'
-
     projects = Project.objects.all()
     project = Project.objects.get(title=project)
 
@@ -50,7 +51,8 @@ def show_project(request, project):
                                             'current_year': date.today().year})
 
 def download_project(request, project):
-    output_path = settings.STATIC_ROOT + f'/pdf/{project}.pdf'
+
+    output_path = settings._STATIC_ROOT + f'/pdf/{project.title}.pdf'
     # re.sub didn't work here for some reason, so have to use replace() instead
     pure_html = str(show_project(request, project).content).replace('\\n', '')
     pure_html = pure_html.replace('\\r', '').replace("\\'", "'")
@@ -61,6 +63,6 @@ def download_project(request, project):
                                 output_path)
     try:
         return FileResponse(open(output_path, 'rb'))
-    except FileNotFoundException:
+    except FileNotFoundError:
         return show_project(request, project)
 
