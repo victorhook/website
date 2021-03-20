@@ -9,7 +9,7 @@ import re
 class PdfCreator:
 
     # Tags to limit the pdf-content from the html
-    START_TAG = r'project-content">'
+    START_TAG = r'project-content-inner">'
     END_TAG = r'<div class="row" id="download-btn">'
     REGEX = re.compile(r'(?<=%s).*?(?=%s)' % (START_TAG, END_TAG),
                        flags=re.DOTALL)
