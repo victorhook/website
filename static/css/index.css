@@ -20,7 +20,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px solid white;
   overflow-x: hidden;
 }
 
