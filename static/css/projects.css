@@ -19,6 +19,7 @@
     border-radius: 5px;
     height: 100%;
     padding: 30px;
+    margin-bottom: 300px;
 }
 
 .projects .sidebar h2 {
@@ -82,18 +83,20 @@
     box-shadow: 0 .7em 2em .03em rgb(134, 136, 251);
     opacity: 0;
     z-index: -10;
+    visibility: hidden;
     transition: 0.2s opacity;
 }
 
 .project-image-hover img {
     border-radius: .5em;
-    width: 400px;
+    max-width: 400px;
+    max-height: 400px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
     .project-image-hover {
         width: "200px";
-        left: 5em;
+        left: 6em;
     }
     .project-image-hover img {
         border-radius: .5em;
