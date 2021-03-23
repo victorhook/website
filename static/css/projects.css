@@ -293,6 +293,18 @@
     .link-text {
         font-size: .9em;
     }
+    .project-title {
+        font-size: 1.5em;
+    }
+    .description {
+        font-size: .7em;
+    }
+    .project-content-inner {
+        padding: .5em;
+    }
+    .objective-list li {
+        margin: 0;
+    }
 }
 
 /* -- */
@@ -382,6 +394,5 @@ canvas {
 
 .body p {
     padding: 1em;
-    box-shadow: 0 0 .05em .05em rgb(134, 136, 251);
 }
 
