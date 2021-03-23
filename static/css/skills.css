@@ -10,12 +10,17 @@
   list-style: none;
 }
 
-.skill-card li {
+.skill-card-item {
   font-size: 1.5em;
   padding: .3em 1em;
   margin: .3em 1em;
   background-color: #649CFF;
   border-radius: 1em;
+  transition: 0.3s ease-in-out background-color;
+}
+
+.skill-card-item:hover {
+  background-color: #7eabfa;
 }
 
 .skill-card-inner {

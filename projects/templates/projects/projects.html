@@ -9,7 +9,7 @@
 {% block content %}
 
     {% block front_only %}
-        <div class="row">
+        <div class="row wrapper">
             <div class="col-12">
                 <div class="image-container">
                     <img class="background-image" src="{% static '/images/projects/solder.JPG' %}">
@@ -25,6 +25,7 @@
             <div class="sidebar">
                 <a href="{% url 'projects' %}"><h2>Projects</h2></a>
                 <hr>
+
                 <ul class="project-list">
                     {% for project in projects %}
                         <li>
@@ -32,18 +33,17 @@
                                 <div class="project-image-hover">
                                     <!-- <img src="{{ project.image_url }}" alt="Project image" width="300">-->
                                     <img src="{% static '/images/projects/solder.JPG' %}" alt="Project image">
-                                    
                                 </div>
-                                <span>{{ project }}</span>
+                                <span class="link-text">{{ project }}</span>
                             </a>
 
                         </li>
                     {% endfor %}
-
                 </ul>
-            </div>
 
+            </div>
         </div>
+
 
         <div class="project-content offset-lg-1 col-lg-10 offset-xl-0 col-xl-8">
             {% block project-content %}
@@ -71,14 +71,10 @@
             {% endblock %}
         </div>
 
-        {% block bottom %}
-
-        {% endblock %}
-
     </div>
 
 
-    {% endblock %}
+{% endblock %}
 
 
 {% block script %}

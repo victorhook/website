@@ -108,3 +108,11 @@
     z-index: 10;
     font-weight: 500;
 }
+
+/* -- Media queries -- */
+
+@media screen and (max-width: 600px) {
+    .about-container {
+        padding-top: 3em;
+    }
+}
