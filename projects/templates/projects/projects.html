@@ -31,14 +31,15 @@
                             <a class="sidebar-link" href="{% url 'projects' %}/{{ project }}">
                                 <div class="project-image-hover">
                                     <!-- <img src="{{ project.image_url }}" alt="Project image" width="300">-->
-                                    <img src="{{ project.image_url }}" alt="Project image">
+                                    <img src="{% static '/images/projects/solder.JPG' %}" alt="Project image">
                                     
                                 </div>
-                                {{ project }}
+                                <span>{{ project }}</span>
                             </a>
 
                         </li>
                     {% endfor %}
+
                 </ul>
             </div>
 
@@ -61,7 +62,11 @@
                 </svg>
             </div>
 
-            <button id="flip-button" class="button primary">Insane Flip</button>
+            <div class="buttons">
+                <button id="flip-button" class="button primary">Insane Flip</button>
+                <button id="roll-button" class="button secondary">Insane Roll</button>
+                <button id="spin-button" class="button secondary">Insane Spin</button>
+            </div>
 
             {% endblock %}
         </div>
@@ -173,9 +178,9 @@
                     }
             }
 
-            document.getElementById('flip-button').onclick = () => {
-                drone.flip();
-            }
+            document.getElementById('flip-button').onclick = () => drone.flip();
+            document.getElementById('roll-button').onclick = () => drone.roll();
+            document.getElementById('spin-button').onclick = () => drone.spin();
 
 
             let swapped = false;

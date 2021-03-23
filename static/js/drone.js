@@ -118,6 +118,11 @@ class Drone extends Model3D {
             flipStart: 8,
             flipMiddle: 9,
             idle: 10,
+            rollStart: 11,
+            rollMiddle: 12,
+            rollFinish: 13,
+            spinStart: 14,
+            spinMiddle: 15,
         };
     }
 
@@ -129,6 +134,7 @@ class Drone extends Model3D {
         window.addEventListener('mousemove', e => this.onMouseMove(e));
 
         this.startpos = new THREE.Vector3(window.innerWidth / 64, 20, 0);
+        this.startRot = new THREE.Vector3(0, 0, 0);
 
         this.scene.position.set(this.startpos.x, this.startpos.y, this.startpos.z);
         this.scene.scale.set(3, 3, 3);
@@ -154,6 +160,13 @@ class Drone extends Model3D {
     flip() {
         this.scene.rotation.z = 0;
         this.state = this.STATES.flipStart;
+    }
+    roll() {
+        this.scene.rotation.set(this.startRot.x, this.startRot.y, this.startRot.z);
+        this.state = this.STATES.rollStart;
+    }
+    spin() {
+        this.state = this.STATES.spinStart;
     }
 
     _move(elapsedTime) {
@@ -186,7 +199,37 @@ class Drone extends Model3D {
                 this.scene.translateX(-400 * elapsedTime);
                 this.scene.rotateZ(-40 * elapsedTime);
                 break;
+            case this.STATES.rollStart:
+                this.scene.rotateX(0.11);
+                this.state = this.STATES.rollMiddle;
                 break;
+            case this.STATES.rollMiddle:
+                if (Math.abs(this.scene.rotation.x) < 0.1)
+                    this.state = this.STATES.rollFinish;
+                else
+                    this.scene.rotateX(.1);
+                break;
+            case this.STATES.spinStart:
+                this.scene.rotation.set(this.startRot.x, this.startRot.y, this.startRot.z);
+                this.count = 0;
+                this.scene.rotateY(0.11);
+                this.state = this.STATES.spinMiddle;
+                break;
+            case this.STATES.spinMiddle:
+                if (Math.abs(this.scene.rotation.y) < 0.05) {
+                    if (this.count == 0) {
+                        this.scene.rotateY(.1);
+                        this.count++;
+                    } else {
+                        this.state = this.STATES.rollFinish;
+                    }
+                } else {
+                    this.scene.rotateY(.1);
+                }
+                break;
+            case this.STATES.rollFinish:
+                this.scene.rotation.set(this.startRot.x, this.startRot.y, this.startRot.z);
+                this.state = this.STATES.idle;
             case this.STATES.idle:
                 this.scene.position.set(this.startpos.x, this.startpos.y, this.startpos.z);
                 break;

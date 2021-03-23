@@ -6,6 +6,7 @@
 
 .sidebar-container {
     padding: 2em;
+    margin-bottom: 10em;
 }
 
 .project-content {
@@ -67,10 +68,12 @@
 .projects .sidebar a:hover .project-image-hover {
     opacity: 1;
     z-index: 10;
+    visibility: visible;
 }
 
 .project-image-hover {
     position: absolute;
+    visibility: hidden;
     top: 0;
     left: 10em;
     padding: .5em;
@@ -84,7 +87,7 @@
 
 .project-image-hover img {
     border-radius: .5em;
-    width: 300px;
+    width: 400px;
 }
 
 @media screen and (max-width: 500px) {
@@ -134,9 +137,14 @@
     animation: arrowSlide 2s infinite;
 }
 
-#flip-button {
+#flip-button, #roll-button, #spin-button {
     margin-top: 2em;
     font-size: 1em;
+}
+
+.secondary {
+    color: white;
+    background: transparent;
 }
 
 @keyframes arrowSlide {
@@ -145,21 +153,6 @@
     100%   {left: 80px;}
 }
 
-@media screen and (max-width: 1200px) {
-    .arrow-container {
-        visibility: hidden;
-        height: 0;
-    }
-    #flip-button {
-        visibility: hidden;
-        height: 0;
-    }
-    .project-content {
-        padding-bottom: 0;
-        margin-bottom: 0;
-        height: 15em;
-    }
-}
 
 /* -- Body -- */
 
@@ -225,9 +218,12 @@
     background-color: #76748844;
 }
 
-@media screen and (max-width: 900px) {
-    .project-title {
-        font-size: 2em;
+@media screen and (max-width: 1200px) {
+    .project-title h1 {
+        font-size: 1em;
+    }
+    .sidebar-container {
+        padding-top: 0;
     }
     .cool-li {
         font-size: 1em;
@@ -236,6 +232,18 @@
     }
     h3 {
         font-size: 1em;
+    }
+   .arrow-container {
+        visibility: hidden;
+        height: 0;
+    }
+    canvas, .buttons {
+        visibility: hidden;
+    }
+    .project-content {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        height: 15em;
     }
 }
 
