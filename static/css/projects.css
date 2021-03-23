@@ -105,6 +105,7 @@
 }
 
 
+
 /* -- Main page -- */
 
 .project-title {
@@ -221,6 +222,8 @@
     background-color: #76748844;
 }
 
+/* -- Media queries -- */
+
 @media screen and (max-width: 1200px) {
     .project-title h1 {
         font-size: 1em;
@@ -250,7 +253,35 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .project-title h1 {
+        font-size: .7em;
+    }
+    .project-title h4 {
+        font-size: .5em;
+    }
+    .project-content {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        height: 10em;
+    }
+}
 
+@media screen and (max-width: 600px) {
+    .project-title h1 {
+        font-size: .5em;
+    }
+    .project-title h4 {
+        font-size: .3em;
+    }
+    .project-content {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        height: 10em;
+    }
+}
+
+/* -- */
 
 .project-content .date {
     text-align: right;
