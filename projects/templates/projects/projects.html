@@ -31,8 +31,8 @@
                         <li>
                             <a class="sidebar-link" href="{% url 'projects' %}/{{ project }}">
                                 <div class="project-image-hover">
-                                    <!-- <img src="{{ project.image_url }}" alt="Project image" width="300">-->
-                                    <img src="{% static '/images/projects/solder.JPG' %}" alt="Project image">
+                                    <img src="{{ project.image_url }}" alt="Project image">
+                                    <!-- <img src="{% static '/images/projects/solder.JPG' %}" alt="Project image"> -->
                                 </div>
                                 <span class="link-text">{{ project }}</span>
                             </a>

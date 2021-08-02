@@ -18,7 +18,7 @@
 
         {% for photo in photos %}
             <div class="image col-xl-2 col-lg-3 col-md-4 col-sm-12 m-3">
-                    <img class="img-fluid img-responsive" id="{{ photo }}" src={{ photo.url }} alt="{{ photo.title }}">
+                    <img class="img-fluid img-responsive" loading="lazy" id="{{ photo }}" src={{ photo.url }} alt="{{ photo.title }}">
 
                     {% if photo.contains_meta_data %}
                         <a href="javascript:void(0);" class="image-tag" name="{{ photo }}" id={{ photo.url }} data-toggle="modal" data-target="#imageModal"
