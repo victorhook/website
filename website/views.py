@@ -15,10 +15,9 @@ def home(request):
     return render(request, 'home.html', {'current_year': date.today().year})
 
 def about(request):
-
     # Calculate time left until graduation and how much of the bachelors is completed.
     start = date(2019, 8, 29)
-    end = date(2022, 6, 10)
+    end = date(2023, 1, 1)
     total_time = (end - start).days
     time_left_today = (end - date.today()).days
     percent_engineer = 100 - int(time_left_today / total_time * 100)

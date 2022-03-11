@@ -6,3 +6,9 @@ website/settings.py
 /*/*/__pycache__
 env
 static/pdf/
+static/images/*
+*.pyc
+*/migrations/**.db
+*.db
+*/migrations/*
+.vscode/*

@@ -109,6 +109,14 @@
     font-weight: 500;
 }
 
+#button-resume {
+    font-size: 1.2em !important;
+}
+
+.button-container-center {
+    text-align: center;
+}
+
 /* -- Media queries -- */
 
 @media screen and (max-width: 600px) {

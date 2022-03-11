@@ -3,9 +3,9 @@ const SCROLL_NEAR = 400;
 const sections = $('.image-content');
 const images = $('.front-image-frame');
 for (section of sections) {
-    $(section).css('opacity', '0');
+    $(section).css('opacity', '1');
 }
-
+/*
 document.addEventListener('scroll', e => {
 
     for (obj of $('.fadeIn')) {
@@ -44,3 +44,4 @@ document.addEventListener('scroll', e => {
 
     }
 })
+*/

@@ -25,11 +25,15 @@
                     <li><span class="keyword">Origin</span>: Malmo, Sweden</li>
                     <li><span class="keyword">University</span>: Lunds University</li>
                     <li><span class="keyword">Days until graduation</span>: {{ days_until_graduation }}</li>
-                    <li style="text-align: center;">
-                        <a class="img-tag" href="https://www.lu.se/"><img class="img-fluid loggo" src="{% static 'images/logos/logo_lu.jpg' %}" alt="LTH logo"></a>
+                    <!--
+                    <li class="mt-5">
+                        <div class="button-container-center">
+                            <a class="button primary" id="button-resume" href="{% static 'resume.pdf' %}">See full Resume</a>
+                        </div>
                     </li>
-
+                    -->
                 </ul>
+
             </div>
         </div>
         <div class="offset-1 col-10 offset-sm-1 col-sm-10 offset-md-1 col-md-5 col-lg-6 about">
@@ -38,8 +42,8 @@
                 <hr>
                 <p>
                     Hi! <br>
-                    I'm Victor, 25 years old, living in Helsingborg in the southern
-                    part of Sweden. I'm currently studying towards a bachelors in
+                    I'm Victor, {{ age }} years old, living in Helsingborg in the southern
+                    part of Sweden. I'm currently studying towards a bachelor's in
                     Computer Science and Engineering at Lunds University and I
                     really love it!
                 </p>
@@ -50,20 +54,21 @@
                     meet new people, and to fully enjoy what life is really about.
                     I love acquiring new experiences and have a big hunger to learn new skills.
                 </p>
-                <p>
-                    I've previously worked as a chef, salesperson, laboratory assistant,
-                    machine operator as well as a personal trainer. I've also spent
-                    my last two summers (2019 and 2020) as a summer intern at
-                    <a href="https://www.bitcraze.io/">bitcraze</a>. There, I
-                    learned to use git & github, got introduced to an agile work-flow,
-                    read legacy python-code and improved their GUI client.
-                    I've made two blogposts that you can read if you're curious
-                    of the details of my time there:
-                    <a href="https://www.bitcraze.io/2019/08/summer-internship/">
-                    summer 2019</a>,
-                    <a href="https://www.bitcraze.io/2020/08/python-client-improvements/">
-                    summer 2020</a>.
-                </p>
+                <h2>Work experience:</h2>
+                    <ol>
+                        <li>Summer intern (2021) at <a href="https://www.arm.com/">Arm</a></li>
+                        <li>Summer intern (2019, 2020) at <a href="https://www.bitcraze.io/">Bitcraze</a></li>
+                        <li>Teaching Assistant at LTH, Lund's University</li>
+                        <li>Machine Operator</li>
+                        <li>Laboratory Assistant</li>
+                        <li>Personal Trainer</li>
+                        <li>Chef & Salesperson</li>
+                    </ol>
+                <h2>Educational experience:</h2>
+                    <ol>
+                        <li>Minor in Electronics for Robotics, TU Delft (Erasmus Programme)</li>
+                        <li>Bachelor of Computer Science and Engineering, LTH</li>
+                    </ol>
             </div>
         </div>
     </div>
@@ -74,7 +79,6 @@
 {% block script %}
     <script>
         var percentEngineer = $("#progressbar-text").data("percent_engineer");
-            $(".fill").width(percentEngineer + "%");
-            console.log(percentEngineer + "%");
+        $(".fill").width(percentEngineer + "%");
     </script>
 {% endblock %}
